@@ -9,9 +9,11 @@
 		<li>Age : 22</li>
 	</ul>
 {% for portfolio in portfolios %}
-	<h3><a href="{{portfolio.slug}}">{{portfolio.title}}</a></h3>
-	<p>{{portfolio.description}}</p>
-	<!-- <img src="{{portfolio.image.url}}"/	>-->
+	<div>
+		<h3><a href="{{portfolio.slug}}">{{portfolio.title}}</a></h3>
+		<p>{{portfolio.description}}</p>
+		<img style = "width: 400px;" src="{{portfolio.image.url}}"/>
+	</div>
 {% endfor %}
 </body>
 </html>
