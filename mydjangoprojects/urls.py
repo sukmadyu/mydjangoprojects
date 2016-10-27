@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^$', home_view),
     url(r'^blog/', include('blog.urls')),
     url(r'^polls/', include('polls.urls')),
+    url(r'^todo/', include('todo.urls')),
 ]
 
 if settings.DEBUG:

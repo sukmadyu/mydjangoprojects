@@ -7,9 +7,10 @@ class User(models.Model):
     lname= models.CharField(max_length=255)
     email=models.EmailField(max_length=255)
     password = models.CharField(max_length=200)
-    join_date=models.DateTimeField(editable=False,default=timezone.now)
+    join_date=models.DateTimeField(editable=False,default=datetime.now())
     #profile_pic = models.ImageField(upload_to = 'user/',null=True)
 
 class Todo(models.Model):
     todo_job= models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
+    created_date = models.DateTimeField(
+            default=timezone.now)

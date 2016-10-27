@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home_view),
     url(r'^blog/', include('blog.urls')),
+    url(r'^polls/', include('polls.urls')),
 ]
 
 if settings.DEBUG:

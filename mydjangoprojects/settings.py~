@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'portfolio',
     'blog',
     'todo',
-    'polls',
+
     'gallery',
     'library',
 ]
