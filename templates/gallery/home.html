@@ -1,0 +1,14 @@
+<html>
+<head>
+	<h1> My Gallery</h1>
+</head>
+<body>
+	<p>Hello this is my gallery</p>
+{% for gallery in gallery %}
+	<div>
+		<h3><a href="{{galleries.slug}}">{{galleries.title}}</a></h3>
+		<img style = "width: 400px;" src="{{galleries.image.url}}"/>
+	</div>
+{% endfor %}
+</body>
+</html>
