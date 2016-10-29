@@ -4,10 +4,10 @@
 </head>
 <body>
 	<p>Hello this is my gallery</p>
-{% for gallery in gallery %}
+{% for gallery in galleries %}
 	<div>
-		<h3><a href="{{galleries.slug}}">{{galleries.title}}</a></h3>
-		<img style = "width: 400px;" src="{{galleries.image.url}}"/>
+		<h3><a href="{{gallery.slug}}">{{gallery.title}}</a></h3>
+		<img style = "width: 400px;" src="{{gallery.image.url}}"/>
 	</div>
 {% endfor %}
 </body>
