@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for book in books %}
+        <div class="post">            
+			<ul>
+				<li><a href="{% url 'book_detail' category_slug=book.category.slug book_slug=book.slug %}">{{ book.title }}</a></li>            
+			</ul>
+        </div>
+    {% endfor %}
+{% endblock content%}
