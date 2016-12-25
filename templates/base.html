@@ -1,43 +1,46 @@
-<!DOCTYPE html>
-{% load staticfiles i18n %}
+<!doctype html>
+{% load staticfiles %}
 <html class="no-js" lang="en-US">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>EightX</title>
+	<title>{% block title %}Blog - Sukmadyu{% endblock %}</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Fav Icon
 	============================================ -->
-	<link rel="shortcut icon" href="img/Sukmadyu.png" type="image/x-icon">
-	<link rel="icon" href="img/Sukmadyu.png" type="image/x-icon">
+	<link rel="shortcut icon" href="{% static 'img/Sukmadyu.png'%}" type="image/x-icon">
+	<link rel="icon" href="{% static 'img/Sukmadyu.png'%}" type="image/x-icon">
 	<!-- Google web fonts
 	============================================ -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 	<!-- Css
 	============================================ -->
 	<!-- Bootstrap Css -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
 	<!-- Font Awesome & Themify Icon Css -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/themify-icons.css">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css'%}">
 	<!-- Magnific Popup Css -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
 	<!-- Owl Carousel Css -->
-	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css'%}">
 	<!-- Kenburnsy Css -->
-	<link rel="stylesheet" href="css/kenburnsy.min.css">
+	<link rel="stylesheet" href="{% static 'css/kenburnsy.min.css'%}">
 	<!-- Perfect Scrollbar Css -->
-	<link rel="stylesheet" href="css/perfect-scrollbar.min.css">
+	<link rel="stylesheet" href="{% static 'css/perfect-scrollbar.min.css'%}">
 	<!-- Animate Css -->
-	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="{% static 'css/animate.min.css'%}">
 	<!-- Style Css -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="{% static 'css/style.css'%}">
 	<!-- Responsive Css -->
-	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+	<!-- Sidebar Css -->
+	<link href="{% static 'css/side.css'%}" rel="stylesheet">
+
 	
 	<!-- Modernizr JS -->
-	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	<script src="{% static 'js/vendor/modernizr-2.8.3.min.js'%}"></script>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't portfolio if you view the page via file:// -->
@@ -46,7 +49,64 @@
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>
+<body class="yay-hide">
+	<!-- Bootstrap top navbar -->
+    <!--<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <!-- Yay toggle button -->
+          <!--<button class="btn btn-default navbar-btn yay-toggle" type="button"><i class="fa fa-bars"></i></button>
+          <a class="navbar-brand" href="index.html"><img src="{% static 'img/logo2.png'%}"></a>
+        </div>
+    </nav>-->
+    <!-- /Bootstrap top navbar -->
+
+
+    <!--
+      Yay Sidebar
+      Options [you can use all of theme classnames]:
+        .yay-hide-to-small   - no hide menu, just set it small with big icons
+        .yay-static          - stop using fixed sidebar (will scroll with content)
+        .yay-gestures        - to show and hide menu using gesture swipes
+        .yay-light           - light color scheme
+        .yay-overlap-content - hide menu on content click
+        
+      Effects [you can use one of these classnames]:
+        .yay-overlay  - overlay content
+        .yay-push     - push content to right
+        .yay-shrink   - shrink content width
+    -->
+    <!--<div class="yaybar yay-hide-to-small yay-shrink yay-gestures">
+      <div class="nano">
+        <div class="nano-content">
+          
+          <ul>
+            <li class="label">Menu</li>
+            <li>
+              <a href="index.html"><i class="icon ti-home"></i> Home </a>
+            </li>
+            <li>
+              <a href="#"><i class="icon ti-user"></i> About me </a>
+            </li>
+            <li>
+              <a href="#"><i class="icon ti-id-badge"></i> Resume </a>
+            </li>
+            <li>
+              <a href="#"><i class="icon ti-layout-grid2"></i> Portfolio </a>
+            </li>
+            <li>
+              <a href="#"><i class="icon ti-gallery"></i> Gallery </a>
+            </li>
+            <li class="active">
+              <a href="#"><i class="icon ti-write"></i> Blog </a>
+            </li>
+            <li>
+              <a href="#"><i class="icon ti-email"></i> Contact </a>
+            </li>
+        </div>
+      </div>
+    </div>-->
+    <!-- /Yay Sidebar -->
 <!-- Preloader
 ============================================ -->
 <div id="loading">
@@ -61,586 +121,36 @@
 </div>
 <!-- Main Container & Overlay
 ============================================ -->
-<div class="main-container fix"><div class="overlay home-overlay"></div></div>
-<!-- Section Close Button -->
-<div class="close-section"><i class="ti-close"></i></div>
-<!-- Home Section
+<div class="main-container fix"><div class="overlay blog-overlay"></div></div>
+<!-- Blog Page
 ============================================ -->
-<div id="home-section" class="home-section section text-center active">
+
+<div id="{% block div_id %}{% endblock %}" class="blog-page page">
 	<div class="table">
 		<div class="table-cell">
-			<div class="container">
-				<!-- Section Wrapper -->
-				<div class="section-wrapper animated row">
-					<div class="home-wrapper">
-						<!-- Hero Content -->
-						<div class="hero-content pull-left">
-							<div class="cover-image">
-								<img src="img/Sukmadyu.png" alt="photo">
-							</div>
-							<!-- Caption -->
-							<div class="caption">
-								<h1>Dyah Ayu Sukmawati</h1>
-								<span>Web Developer</span>
-								<!-- Social -->
-								<div class="social">
-									<a href="https://www.facebook.com/sukmadyu"><i class="fa fa-facebook"></i></a>
-									<a href="https://www.linkedin.com/in/dyah-ayu-sukmawati-7312b4122"><i class="fa fa-linkedin"></i></a>
-								</div>
-							</div>
-						</div><!-- Hero Content End -->
-						<!-- Navigation -->
-						<nav class="navigation pull-left">
-							<ul>
-								<li class="about"><a href="#about">
-									<i class="icon ti-user"></i>
-									<i class="icon-bg ti-user"></i>
-									<span class="text">About Me</span>
-								</a></li>
-								<li class="resume"><a href="#resume">
-									<i class="icon ti-id-badge"></i>
-									<i class="icon-bg ti-id-badge"></i>
-									<span class="text">Resume</span>
-								</a></li>
-								<li class="portfolio"><a href="#portfolio">
-									<i class="icon ti-layout-grid2"></i>
-									<i class="icon-bg ti-layout-grid2"></i>
-									<span class="text">portfolio</span>
-								</a></li>
-								<li class="service"><a href="#service">
-									<i class="icon ti-panel"></i>
-									<i class="icon-bg ti-panel"></i>
-									<span class="text">Service</span>
-								</a></li>
-								<li class="blog"><a href="#blog">
-									<i class="icon ti-write"></i>
-									<i class="icon-bg ti-write"></i>
-									<span class="text">Blog</span>
-								</a></li>
-								<li class="contact"><a href="#contact">
-									<i class="icon ti-email"></i>
-									<i class="icon-bg ti-email"></i>
-									<span class="text">Contact</span>
-								</a></li>
-							</ul>
-						</nav><!-- Navigation End -->
-					</div>
+			<div class="content-wrap">
+			<div class="container container-fluid">
+				{% block content %}
+				{% endblock %}
 				</div><!-- Section Wrapper End -->
 			</div>
-		</div>
-	</div>
-</div>
-<!-- About Section
-============================================ -->
-<div id="about" class="about-section section">
-	<div class="table">
-		<div class="table-cell">
-			<div class="container">
-				<!-- Section Wrapper -->
-				<div class="section-wrapper animated row">
-					<!-- Section Title -->
-					<div class="col-xs-12">
-						<div class="section-title about">
-							<h1>About me</h1>
-							<p>Let me introduce myself</p>
-						</div>
-					</div><!-- Section Title End -->
-					<!-- About Me -->
-					<!--<div class="col-xs-12">
-						<div class="row">
-							 About Image 
-							<div class="about-image col-md-4 col-xs-12">
-								<img src="img/photo.jpg" alt="photo">
-							</div>
-							About Content 
-							<div class="about-me col-md-8 col-xs-12">
-								<h2>Saya <span>Dyah Ayu Sukmawati</span></h2>
-							</div>
-						</div>
-					</div><!-- About Me End -->
-					<div class="col-xs-12">
-						<div class="row about-bottom">
-							<!-- Personal Information -->
-							<div class="per-info col-md-6 col-xs-12">
-								<!-- Sub Section Title -->
-								<div class="title-label-2"><i class="ti-agenda"></i><h2>Personal Info</h2></div>
-								<ul style="padding-top: 10px;
-											padding-left: 10px;
-											padding-bottom: 10px;
-											padding-right: 10px;
-											background-color: rgba(141, 87, 106, 0.62);
-								">
-									<li><span>Name</span> Dyah Ayu Sukmawati</li>
-									<li><span>Born</span> 18 - 8 - 1994</li>
-									<li><span>Phone</span> +62812-9655-2165</li>
-									<li><span>Email</span> sukmadyu@gmail.com</li>
-									<li><span>Address</span> Jalan Kedoya, Beji, Depok, Jawa Barat, Indonesia</li>
-								</ul>
-							</div><!-- Personal Information End -->
-							<!-- Skills -->
-							<div class="skills col-md-6 col-xs-12">
-								<!-- Sub Section Title -->
-								<div class="title-label-2"><i class="ti-settings"></i><h2>My Skills</h2></div>
-								<!-- Skill Slider -->
-								<div class="skill-slider owl-carousel">
-									<!-- Single Skill -->
-									<div class="sin-skill">
-										<span class="chart" data-percent="80">
-											<span class="percent">80%</span>
-										</span>
-										<h3>HTML & CSS</h3>
-									</div>
-									<!-- Single Skill -->
-									<div class="sin-skill">
-										<span class="chart" data-percent="53">
-											<span class="percent">53%</span>
-										</span>
-										<h3>Javascript</h3>
-									</div>
-									<!-- Single Skill -->
-									<div class="sin-skill">
-										<span class="chart" data-percent="50">
-											<span class="percent">50%</span>
-										</span>
-										<h3>mysql</h3>
-									</div>
-									<!-- Single Skill -->
-									<div class="sin-skill">
-										<span class="chart" data-percent="40">
-											<span class="percent">40%</span>
-										</span>
-										<h3>Python</h3>
-									</div>
-									<!-- Single Skill -->
-									<div class="sin-skill">
-										<span class="chart" data-percent="80">
-											<span class="percent">40%</span>
-										</span>
-										<h3>Django</h3>
-									</div>
-								</div><!-- Skill Slider End -->
-							</div><!-- Skills End -->
-							<!-- Hobbies -->
-							<div class="hobbies col-md-6 col-xs-12">
-								<!-- Sub Section Title -->
-								<div class="title-label-2"><i class="ti-heart"></i><h2>My Hobbies</h2></div>
-								<ul>
-									<li><div class="hobbie"><i class="ti-game"></i><span>Gamming</span></div></li>
-									<li><div class="hobbie"><i class="ti-book"></i><span>Reading</span></div></li>
-									<li><div class="hobbie"><i class="ti-palette"></i><span>Painting</span></div></li>
-									<li><div class="hobbie"><i class="ti-music-alt"></i><span>Music</span></div></li>
-									<li><div class="hobbie"><i class="ti-video-clapper"></i><span>Movie</span></div></li>
-								</ul>
-							</div><!-- Hobbies End -->
-						</div>
-					</div>
-				</div><!-- Section Wrapper End -->
 			</div>
-		</div>
-	</div>
-</div>
-<!-- Resume Section
-============================================ -->
-<div id="resume" class="resume-section section">
-	<div class="table">
-		<div class="table-cell">
-			<div class="container">
-				<!-- Section Wrapper -->
-				<div class="section-wrapper animated row">
-					<!-- Section Title -->
-					<div class="col-xs-12">
-						<div class="section-title">
-							<h1>Resume</h1>
-							<p>More about my past</p>
-						</div>
-					</div><!-- Section Title End -->
-					<!-- Education -->
-					<div class="col-md-4 col-md-offset-4 col-xs-12">
-						<!-- Sub Section Title -->
-						<div class="title-label-2"><i class="ti-book"></i><h2>Education</h2></div>
-						<!-- Education Wrapper -->
-						<div class="resume-wrapper education fix">
-							<!-- Single Education -->
-							<div class="single-resume">
-								<span class="date">2016</span>
-								<div class="details fix">
-									<h3>Universitas Gunadarma - <span>Sistem Informasi</span></h3>
-								</div>
-							</div>
-							<!-- Single Education -->
-							<div class="single-resume">
-								<span class="date">2012</span>
-								<div class="details fix">
-									<h3>SMA Negeri 1 Kota Jambi - <span>Jurusan IPA</span></h3>
-								</div>
-							</div>
-							<!-- Single Education -->
-							<div class="single-resume">
-								<span class="date">2009</span>
-								<div class="details fix">
-									<h3>SMP Negeri 7 Kota Jambi</h3>
-								</div>
-							</div>
-						</div>
-					</div><!-- Education End -->
-					<!-- Experience
-					<div class="col-md-6 col-xs-12">
-						<!-- Sub Section Title 
-						<div class="title-label-2"><i class="ti-ruler-pencil"></i><h2>Experience</h2></div>
-						<!-- Experience Wrapper 
-						<div class="resume-wrapper experience fix">
-							<!-- Single Experience 
-							<div class="single-resume">
-								<span class="date">2014 - NOW</span>
-								<div class="details fix">
-									<h3>Exclusive Author - <span>Themeforest</span></h3>
-									<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
-								</div>
-							</div>
-							<!-- Single Experience 
-							<div class="single-resume">
-								<span class="date">2010 - 2014</span>
-								<div class="details fix">
-									<h3>Font End Developer - <span>Envato Studio</span></h3>
-									<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
-								</div>
-							</div>
-							<!-- Single Experience 
-							<div class="single-resume">
-								<span class="date">2008 - 2010</span>
-								<div class="details fix">
-									<h3>Web Designer - <span>Upwork</span></h3>
-									<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
-								</div>
-							</div>
-						</div>
-					</div><!-- Experience End -->
-				</div> Section Wrapper End 
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Portfolio Section
-============================================ -->
-<div id="portfolio" class="portfolio-section section">
-	<div class="table">
-		<div class="table-cell">
-			<div class="container">
-				<!-- Section Wrapper -->
-				<div class="section-wrapper animated row">
-					<!-- Section Title -->
-					<div class="col-xs-12">
-						<div class="section-title">
-							<h1>Portfolio</h1>
-							<p>My latest work</p>
-						</div>
-					</div><!-- Section Title End -->
-					<div class="col-xs-12">
-						<!-- Portfolio Wrapper -->
-						<div class="portfolio-wrapper text-center">
-							<!-- Single Portfolio -->
-							<div class="single-portfolio col-md-4 col-sm-6 col-xs-12">
-								<img src="img/portfolio/1.jpg" alt="" />
-								<a href="img/portfolio/1.jpg" class="portfolio-hover">
-									<h2>Portfolio Title</h2>
-									<p>Portfolio Category</p>
-								</a>
-							</div>
-							<!-- Single Portfolio -->
-							<div class="single-portfolio col-md-4 col-sm-6 col-xs-12">
-								<img src="img/portfolio/2.jpg" alt="" />
-								<a href="img/portfolio/2.jpg" class="portfolio-hover">
-									<h2>Portfolio Title</h2>
-									<p>Portfolio Category</p>
-								</a>
-							</div>
-							<!-- Single Portfolio -->
-							<div class="single-portfolio col-md-4 col-sm-6 col-xs-12">
-								<img src="img/portfolio/3.jpg" alt="" />
-								<a href="img/portfolio/3.jpg" class="portfolio-hover">
-									<h2>Portfolio Title</h2>
-									<p>Portfolio Category</p>
-								</a>
-							</div>
-							<!-- Single Portfolio -->
-							<div class="single-portfolio col-md-4 col-sm-6 col-xs-12">
-								<img src="img/portfolio/4.jpg" alt="" />
-								<a href="img/portfolio/4.jpg" class="portfolio-hover">
-									<h2>Portfolio Title</h2>
-									<p>Portfolio Category</p>
-								</a>
-							</div>
-							<!-- Single Portfolio -->
-							<div class="single-portfolio col-md-4 col-sm-6 col-xs-12">
-								<img src="img/portfolio/5.jpg" alt="" />
-								<a href="img/portfolio/5.jpg" class="portfolio-hover">
-									<h2>Portfolio Title</h2>
-									<p>Portfolio Category</p>
-								</a>
-							</div>
-							<!-- Single Portfolio -->
-							<div class="single-portfolio col-md-4 col-sm-6 col-xs-12">
-								<img src="img/portfolio/6.jpg" alt="" />
-								<a href="img/portfolio/6.jpg" class="portfolio-hover">
-									<h2>Portfolio Title</h2>
-									<p>Portfolio Category</p>
-								</a>
-							</div>
-							<!-- Single Portfolio -->
-							<div class="single-portfolio col-md-4 col-sm-6 col-xs-12">
-								<img src="img/portfolio/7.jpg" alt="" />
-								<a href="img/portfolio/7.jpg" class="portfolio-hover">
-									<h2>Portfolio Title</h2>
-									<p>Portfolio Category</p>
-								</a>
-							</div>
-							<!-- Single Portfolio -->
-							<div class="single-portfolio col-md-4 col-sm-6 col-xs-12">
-								<img src="img/portfolio/8.jpg" alt="" />
-								<a href="img/portfolio/8.jpg" class="portfolio-hover">
-									<h2>Portfolio Title</h2>
-									<p>Portfolio Category</p>
-								</a>
-							</div>
-							<!-- Single Portfolio -->
-							<div class="single-portfolio col-md-4 col-sm-6 col-xs-12">
-								<img src="img/portfolio/9.jpg" alt="" />
-								<a href="img/portfolio/9.jpg" class="portfolio-hover">
-									<h2>Portfolio Title</h2>
-									<p>Portfolio Category</p>
-								</a>
-							</div>
-						</div><!-- Portfolio Wrapper End -->
-					</div>
-				</div><!-- Section Wrapper End -->
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Service Section
-============================================ -->
-<div id="service" class="service-section section">
-	<div class="table">
-		<div class="table-cell">
-			<div class="container">
-				<!-- Section Wrapper -->
-				<div class="section-wrapper animated row">
-					<!-- Section Title -->
-					<div class="col-xs-12">
-						<div class="section-title">
-							<h1>Service</h1>
-							<p>What can I do for you</p>
-						</div>
-					</div><!-- Section Title End -->
-					<div class="col-xs-12">
-						<!-- Service Wrapper -->
-						<div class="service-wrapper">
-							<div class="row">
-								<!-- Single Service -->
-								<div class="single-service col-md-4 col-sm-6 col-xs-12">
-									<div class="service-wrap">
-										<i class="ti-html5"></i>
-										<h3>Web Design</h3>
-										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-									</div>
-								</div>
-								<!-- Single Service -->
-								<div class="single-service col-md-4 col-sm-6 col-xs-12">
-									<div class="service-wrap">
-										<i class="ti-settings"></i>
-										<h3>Web Development</h3>
-										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-									</div>
-								</div>
-								<!-- Single Service -->
-								<div class="single-service col-md-4 col-sm-6 col-xs-12">
-									<div class="service-wrap">
-										<i class="ti-desktop"></i>
-										<h3>Responsive Design</h3>
-										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-									</div>
-								</div>
-								<!-- Single Service -->
-								<div class="single-service col-md-4 col-sm-6 col-xs-12">
-									<div class="service-wrap">
-										<i class="ti-mobile"></i>
-										<h3>App Development</h3>
-										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-									</div>
-								</div>
-								<!-- Single Service -->
-								<div class="single-service col-md-4 col-sm-6 col-xs-12">
-									<div class="service-wrap">
-										<i class="ti-paint-roller"></i>
-										<h3>Branding</h3>
-										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-									</div>
-								</div>
-								<!-- Single Service -->
-								<div class="single-service col-md-4 col-sm-6 col-xs-12">
-									<div class="service-wrap">
-										<i class="ti-face-smile"></i>
-										<h3>Customer Support</h3>
-										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-									</div>
-								</div>
-							</div>
-						</div><!-- Service Wrapper End -->
-					</div>
-				</div><!-- Section Wrapper End -->
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Blog Section
-============================================ -->
-<div id="blog" class="blog-section section">
-	<div class="table">
-		<div class="table-cell">
-			<div class="container">
-				<!-- Section Wrapper End -->
-				<div class="section-wrapper animated row">
-					<!-- Section Title -->
-					<div class="col-xs-12">
-						<div class="section-title">
-							<h1>Blog</h1>
-							<p>My latest news</p>
-							<a href="blog.html" class="title-link">view all</a>
-						</div>
-					</div><!-- Section Title End -->
-					<!-- Blog Wrapper -->
-					<div class="blog-wrapper">
-						<!-- Single Blog -->
-						<div class="sin-blog col-md-6 col-xs-12">
-							<a href="single-blog.html" class="blog-image"><img src="img/blog/1.jpg" alt="blog" /></a>
-							<div class="blog-content">
-								<h2><a href="single-blog.html">Blog post with image</a></h2>
-								<div class="blog-meta fix">
-									<a href="#"><i class="ti-user"></i> Author</a>
-									<span><i class="ti-calendar"></i> 31-04-2016</span>
-								</div>
-							</div>
-						</div>
-						<!-- Single Blog -->
-						<div class="sin-blog col-md-6 col-xs-12">
-							<a href="single-blog.html" class="blog-image"><img src="img/blog/2.jpg" alt="blog" /></a>
-							<div class="blog-content">
-								<h2><a href="single-blog.html">Blog post with image</a></h2>
-								<div class="blog-meta fix">
-									<a href="#"><i class="ti-user"></i> Author</a>
-									<span><i class="ti-calendar"></i> 31-04-2016</span>
-								</div>
-							</div>
-						</div>
-						<!-- Single Blog -->
-						<div class="sin-blog col-md-6 col-xs-12">
-							<a href="single-blog.html" class="blog-image"><img src="img/blog/3.jpg" alt="blog" /></a>
-							<div class="blog-content">
-								<h2><a href="single-blog.html">Blog post with image</a></h2>
-								<div class="blog-meta fix">
-									<a href="#"><i class="ti-user"></i> Author</a>
-									<span><i class="ti-calendar"></i> 31-04-2016</span>
-								</div>
-							</div>
-						</div>
-						<!-- Single Blog -->
-						<div class="sin-blog col-md-6 col-xs-12">
-							<a href="single-blog.html" class="blog-image"><img src="img/blog/4.jpg" alt="blog" /></a>
-							<div class="blog-content">
-								<h2><a href="single-blog.html">Blog post with image</a></h2>
-								<div class="blog-meta fix">
-									<a href="#"><i class="ti-user"></i> Author</a>
-									<span><i class="ti-calendar"></i> 31-04-2016</span>
-								</div>
-							</div>
-						</div>
-					</div><!-- Blog Wrapper End -->
-				</div><!-- Section Wrapper End -->
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Contact Section
-============================================ -->
-<div id="contact" class="contact-section section">
-	<div class="table">
-		<div class="table-cell">
-			<div class="container">
-				<!-- Section Wrapper -->
-				<div class="section-wrapper animated row">
-					<!-- Section Title -->
-					<div class="col-xs-12">
-						<div class="section-title">
-							<h1>Contact</h1>
-							<p>Get in touch</p>
-						</div>
-					</div><!-- Section Title End -->
-					<!-- Contact Wrapper -->
-					<div class="contact-wrapper">
-						<div class="col-xs-12">
-							<div id="contact-map">
-							</div>
-						</div>
-						<!-- Contact Information -->
-						<div class="contact-info col-sm-6 col-xs-12">
-							<!-- Sub Section Title -->
-							<div class="title-label-2"><i class="ti-direction-alt"></i><h2>Contact Info</h2></div>
-							<p><i class="ti-mobile"></i>+62812-9655-2165</p>
-							<p><i class="ti-email"></i>sukmadyu@gmail.com</p>
-							<p><i class="ti-world"></i>sukmady.pythonanywhere.com</p>
-							<p><i class="ti-location-pin"></i>Kedoya Raya, Beji, Depok, Jawa Barat, Indonesia</p>
-							<!-- Social -->
-							<div class="social">
-								<a href="https://www.facebook.com/sukmadyu"><i class="fa fa-facebook"></i></a>
-								<a href="https://www.linkedin.com/in/dyah-ayu-sukmawati-7312b4122"><i class="fa fa-linkedin"></i></a>
-							</div>
-						</div><!-- Contact Information End -->
-						<!-- Contact Form -->
-						<div class="contact-form col-sm-6 col-xs-12">
-							<!-- Sub Section Title -->
-							<div class="title-label-2"><i class="ti-email"></i><h2>Contact Form</h2></div>
-							<form action="#">
-								<input type="text" placeholder="Name" />
-								<input type="email" placeholder="Email" />
-								<textarea placeholder="Message"></textarea>
-								<input type="submit" value="Send Message" />
-							</form>
-						</div><!-- Contact Form End -->
-					</div><!-- Contact Wrapper End -->
-				</div><!-- Section Wrapper End -->
-			</div>
+			
+			
 		</div>
 	</div>
 </div>
 
-<!-- jQuery
-============================================ -->
+<!-- jQuery============================================ -->
 
 <!-- jQuery js -->
-<script src="js/vendor/jquery-1.12.0.min.js"></script>
+<script src="{% static 'js/vendor/jquery-1.12.0.min.js'%}"></script>
 <!-- Plugins js -->
-<script src="js/plugins.js"></script>
-<!-- Google Map APi -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEBTEYUHxDbSfv4hsRz7jB6RNvW4DWks0"></script>
-<script>
-	function initialize() {
-	  var mapOptions = {
-		zoom: 13,
-		scrollwheel: false,
-		center: new google.maps.LatLng( -6.3664646, 106.837019)
-	  };
-	  var map = new google.maps.Map(document.getElementById('contact-map'),
-		  mapOptions);
-	  var marker = new google.maps.Marker({
-		icon: 'img/marker.png',
-		position: map.getCenter(),
-		map: map
-	  });
-	}
-	google.maps.event.addDomListener(window, 'load', initialize);				
-</script>
+<script src="{% static 'js/plugins.js'%}"></script>
 <!-- Main js -->
-<script src="js/main.js"></script>
+<script src="{% static 'js/main.js'%}"></script>
+<script src="{% static 'js/script.js'%}"></script>
+<script src="{% static 'js/jquery-1.11.0.min.js'%}"></script>
 
 </body>
 </html>

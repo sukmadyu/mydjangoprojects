@@ -1,7 +1,32 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="post">
+<!-- Section Title -->
+	<div class="col-xs-12">
+		<div class="section-title">
+			<h1>Blog</h1>
+			<h2>{{ post.title }}</h2>
+			<a href="/" class="title-link"><i class="ti-home"></i></a>
+		</div>
+	</div><!-- Section Title End -->
+	<!-- Blog Wrapper -->
+	<div class="blog-wrapper col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+	<!-- Single Blog Start -->
+		<div class="single-blog">
+			<div class="single-blog-image"><img src="{{post.image.url}}" alt="blog" /></div>
+			<div class="single-blog-content">
+				<h2>{{ post.title }}</h2>
+					<div class="blog-meta fix">
+						<a href="#"><i class="ti-user"></i> {{post.author}}</a>
+						<span><i class="ti-calendar"></i> {{ post.published_date |date:"D d M Y"}}</span>
+						<span><i class="ti-time"></i> {{ post.published_date |time:"H:i"}}</span>
+					</div>
+				<p>{{ post.text|linebreaksbr }}</p>
+			</div>
+		</div><!-- Single Blog End -->
+	</div>
+		
+    <!--<div class="post">
         {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
@@ -10,5 +35,5 @@
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
-    </div>
+    </div>-->
 {% endblock %}

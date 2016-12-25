@@ -4,4 +4,4 @@ from .models import Gallery
 # Create your views here.
 def home_view(request):
     galleries = Gallery.objects.all()
-    return render(request, 'gallery/home.html', {'galleries':galleries})
+    return render(request, 'index.html', {'galleries':galleries})

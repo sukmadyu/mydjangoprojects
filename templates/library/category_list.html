@@ -1,11 +1,26 @@
 {% extends 'library/base.html' %}
 
 {% block content %}
-    {% for category in categories %}
-        <div class="post">            
-			<ul>
-				<li><a href="{% url 'book_list' category_slug=category.slug %}">{{ category.name }}</a></li>            
-			</ul>
-        </div>
-    {% endfor %}
+	<!-- Section Title -->
+	<div class="col-xs-12">
+		<div class="section-title">
+			<h1>Library Category</h1>
+			<p>My Book Collections</p>
+			<a href="/" class="title-link"><i class="ti-home"></i></a>
+		</div>
+	</div><!-- Section Title End -->
+	<div class="col-xs-12">
+		<!-- Category Wrapper -->
+		<div class="portfolio-wrapper text-center">
+			{% for category in categories %}
+			<!-- Single Category -->
+			<div class="single-portfolio col-md-4 col-sm-6 col-xs-12">
+				<div class="item-image">
+					<a href="{% url 'book_list' category_slug=category.slug %}"><img src="{{category.image.url}}" alt="" /></a>
+				</div>
+			</div>
+			{% endfor %}
+		</div><!-- Category Wrapper End -->
+	</div>
 {% endblock content%}
+

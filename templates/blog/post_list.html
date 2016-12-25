@@ -1,13 +1,31 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    {% for post in posts %}
-        <div class="post">
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-			<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-    {% endfor %}
+    
+    <!-- Section Title -->
+	<div class="col-xs-12">
+		<div class="section-title">
+			<h1>Blog</h1>
+			<p>My latest news</p>
+			<a href="/" class="title-link"><i class="ti-home"></i></a>
+		</div>
+	</div><!-- Section Title End -->
+	<!-- Blog Wrapper -->
+	<div class="blog-wrapper">
+	{% for post in posts %}
+	<!-- Single Blog -->
+		<div class="sin-blog col-md-6 col-xs-12">
+			<a href="{% url 'post_detail' pk=post.pk %}" class="blog-image"><img src="{{post.image.url}}" alt="blog" /></a>
+			<div class="blog-content">
+				<h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+				<div class="blog-meta fix">
+					<a href="#"><i class="ti-user"></i> {{post.author}}</a>
+					<span><i class="ti-calendar"></i> {{ post.published_date |date:"D d M Y"}}</span>
+					<span><i class="ti-time"></i> {{ post.published_date |time:"H:i"}}</span>
+				</div>
+			</div>
+		</div><!-- End Single Blog -->
+		{% endfor %}
+	</div>
+    
 {% endblock content%}

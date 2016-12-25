@@ -1,11 +1,34 @@
-{% extends 'blog/base.html' %}
+{% extends 'library/base.html' %}
 
 {% block content %}
-    {% for book in books %}
-        <div class="post">            
-			<ul>
-				<li><a href="{% url 'book_detail' category_slug=book.category.slug book_slug=book.slug %}">{{ book.title }}</a></li>            
-			</ul>
-        </div>
-    {% endfor %}
-{% endblock content%}
+    
+    <!-- Section Title -->
+	<div class="col-xs-12">
+		<div class="section-title">
+			<h1>Library</h1>
+			<p>My Book Collections</p>
+			<a href="/" class="title-link"><i class="ti-home"></i></a>
+		</div>
+	</div><!-- Section Title End -->
+	<!-- Blog Wrapper -->
+	<div class="blog-wrapper">
+	{% for book in books %}
+	<!-- Single Blog -->
+		<div class="sin-blog col-md-6 col-xs-12">
+			<a href="{% url 'book_detail' category_slug=category.slug book_slug=book.slug %}" class="blog-image">
+				<div class="item-image">
+					<img src="{{book.image.url}}" alt="blog" />
+				</div>
+			</a>
+			<div class="blog-content">
+				<h2><a href="{% url 'book_detail' category_slug=category.slug book_slug=book.slug %}">{{ book.title }}</a></h2>
+				<div class="blog-meta fix">
+					<a href="#"><i class="ti-user"></i> {{book.author}}</a>
+				</div>
+			</div>
+		</div><!-- End Single Blog -->
+		{% endfor %}
+	</div>
+    
+{% endblock %}
+

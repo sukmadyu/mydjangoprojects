@@ -1,9 +1,31 @@
-{% extends 'blog/base.html' %}
+{% extends 'library/base.html' %}
 
 {% block content %}
-    <div class="post">               
-        <h1>{{ book.title }}</h1>
-        <p>synopsis: {{ book.synopsis|linebreaksbr }}</p>
-        <p>category: {{book.category}}</p>
-    </div>
+
+ <!-- Section Title -->
+	<div class="col-xs-12">
+		<div class="section-title">
+			<h1>Library</h1>
+			<p>My Book Collections</p>
+			<a href="/" class="title-link"><i class="ti-home"></i></a>
+		</div>
+	</div><!-- Section Title End -->
+	<!-- Blog Wrapper -->
+	<div class="blog-wrapper col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+	<!-- Single Blog Start -->
+		<div class="single-blog">
+			<div class="single-blog-image"><img src="{{book.image.url}}" alt="blog" /></div>
+			<div class="single-blog-content">
+				<h2>{{ book.title }}</h2>
+					<div class="blog-meta fix">
+						<a href="#"><i class="ti-user"></i> {{book.author}}</a>
+					</div>
+				<p>category: {% for category in book.category.all %}
+								{{category}}{% if not forloop.last %}, {% endif %}
+							{% endfor %}
+				</p>
+				<p>synopsis: {{ book.synopsis|linebreaksbr }}</p>
+			</div>
+		</div><!-- Single Blog End -->
+	</div>
 {% endblock %}

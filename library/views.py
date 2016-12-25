@@ -9,8 +9,9 @@ def category_list(request):
 
 
 def book_list(request,  category_slug):
-    books = Book.objects.filter(category__slug=category_slug)
-    return render(request, 'library/book_list.html', {'books': books})
+    category = Category.objects.get(slug=category_slug)
+    books = Book.objects.filter(category=category)
+    return render(request, 'library/book_list.html', {'books': books, 'category': category})
 
 def book_detail(request, category_slug,  book_slug):
     book = Book.objects.get(slug=book_slug)

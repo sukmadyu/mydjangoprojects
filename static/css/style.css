@@ -324,15 +324,16 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 .title-link {
   background-color: rgba(0, 0, 0, 0.3);
-  font-size: 12px;
+  font-size: 30px;
   font-weight: 600;
-  line-height: 30px;
+  line-height: 50px;
   margin-top: -15px;
   padding: 0 10px;
   position: absolute;
   right: 0;
   text-transform: uppercase;
   top: 50%;
+  border-radius:50%;
 }
 .title-link:hover {
   background-color: #fff;
@@ -566,7 +567,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 	4. About Section
 ------------------------*/
 /* About Image */
-.about-image{}
+
 .about-image img {
   border: 10px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
@@ -1325,4 +1326,27 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .customizer ul li a:hover {
   background-color: #fff;
   color: #333;
+}
+.item-image {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 50%;
+  background-color: #368994;
+}
+.item-image img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+i.to-do {
+    margin-right: 8px;
+}
+span.do {
+	margin-right: 10px;
+}
+p.do {
+	margin-top: 20px;
 }

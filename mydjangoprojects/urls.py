@@ -19,15 +19,18 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from portfolio.views import home_view
+from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home_view),
+    #url(r'^$', home_view),
+    #url(r'^about/$', TemplateView.as_view(template_name="about.html"),name='about'),
     url(r'^blog/', include('blog.urls')),
     url(r'^polls/', include('polls.urls')),
     url(r'^todo/', include('todo.urls')),
     url(r'^gallery/', include('gallery.urls')),
     url(r'^library/', include('library.urls')),
+    url(r'^$', home_view ,name='index'),
 ]
 
 if settings.DEBUG:

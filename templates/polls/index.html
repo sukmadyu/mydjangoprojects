@@ -1,7 +1,14 @@
-{% load staticfiles %}
+{% extends 'library/base.html' %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
-
+{% block content %}
+<!-- Section Title -->
+	<div class="col-xs-12">
+		<div class="section-title">
+			<h1>Polls</h1>
+			<p>Polling for ...</p>
+			<a href="/" class="title-link"><i class="ti-home"></i></a>
+		</div>
+	</div><!-- Section Title End -->
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
@@ -11,3 +18,5 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
+{% endblock content %}

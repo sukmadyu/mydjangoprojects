@@ -1,25 +1,159 @@
+<!doctype html>
 {% load staticfiles %}
-<html>
-    <head>
-        <title>Django Girls blog</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    </head>
-    <body>
-        <div class="page-header">
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <h1><a href="{% url 'post_list' %}">Django Girls Blog</a></h1>
-        </div>
+<html class="no-js" lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>{% block title %}Blog - Sukmadyu{% endblock %}</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Fav Icon
+	============================================ -->
+	<link rel="shortcut icon" href="{% static 'img/Sukmadyu.png'%}" type="image/x-icon">
+	<link rel="icon" href="{% static 'img/Sukmadyu.png'%}" type="image/x-icon">
+	<!-- Google web fonts
+	============================================ -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+	<!-- Css
+	============================================ -->
+	<!-- Bootstrap Css -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+	<!-- Font Awesome & Themify Icon Css -->
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css'%}">
+	<!-- Magnific Popup Css -->
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
+	<!-- Owl Carousel Css -->
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css'%}">
+	<!-- Kenburnsy Css -->
+	<link rel="stylesheet" href="{% static 'css/kenburnsy.min.css'%}">
+	<!-- Perfect Scrollbar Css -->
+	<link rel="stylesheet" href="{% static 'css/perfect-scrollbar.min.css'%}">
+	<!-- Animate Css -->
+	<link rel="stylesheet" href="{% static 'css/animate.min.css'%}">
+	<!-- Style Css -->
+	<link rel="stylesheet" href="{% static 'css/style.css'%}">
+	<!-- Responsive Css -->
+	<link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+	<!-- Sidebar Css -->
+	<link href="{% static 'css/side.css'%}" rel="stylesheet">
 
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                {% block content %}
-				{% endblock %}
-                </div>
-            </div>
+	
+	<!-- Modernizr JS -->
+	<script src="{% static 'js/vendor/modernizr-2.8.3.min.js'%}"></script>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't portfolio if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body class="yay-hide">
+	<!-- Bootstrap top navbar -->
+    <!--<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <!-- Yay toggle button -->
+          <!--<button class="btn btn-default navbar-btn yay-toggle" type="button"><i class="fa fa-bars"></i></button>
+          <a class="navbar-brand" href="index.html"><img src="{% static 'img/logo2.png'%}"></a>
         </div>
-    </body>
+    </nav>-->
+    <!-- /Bootstrap top navbar -->
+
+
+    <!--
+      Yay Sidebar
+      Options [you can use all of theme classnames]:
+        .yay-hide-to-small   - no hide menu, just set it small with big icons
+        .yay-static          - stop using fixed sidebar (will scroll with content)
+        .yay-gestures        - to show and hide menu using gesture swipes
+        .yay-light           - light color scheme
+        .yay-overlap-content - hide menu on content click
+        
+      Effects [you can use one of these classnames]:
+        .yay-overlay  - overlay content
+        .yay-push     - push content to right
+        .yay-shrink   - shrink content width
+    -->
+    <!--<div class="yaybar yay-hide-to-small yay-shrink yay-gestures">
+      <div class="nano">
+        <div class="nano-content">
+          
+          <ul>
+            <li class="label">Menu</li>
+            <li>
+              <a href="index.html"><i class="icon ti-home"></i> Home </a>
+            </li>
+            <li>
+              <a href="#"><i class="icon ti-user"></i> About me </a>
+            </li>
+            <li>
+              <a href="#"><i class="icon ti-id-badge"></i> Resume </a>
+            </li>
+            <li>
+              <a href="#"><i class="icon ti-layout-grid2"></i> Portfolio </a>
+            </li>
+            <li>
+              <a href="#"><i class="icon ti-gallery"></i> Gallery </a>
+            </li>
+            <li class="active">
+              <a href="#"><i class="icon ti-write"></i> Blog </a>
+            </li>
+            <li>
+              <a href="#"><i class="icon ti-email"></i> Contact </a>
+            </li>
+        </div>
+      </div>
+    </div>-->
+    <!-- /Yay Sidebar -->
+<!-- Preloader
+============================================ -->
+<div id="loading">
+	<div class="loading-center">
+		<div class="loading-center-absolute">
+			<div class="object object_four"></div>
+			<div class="object object_three"></div>
+			<div class="object object_two"></div>
+			<div class="object object_one"></div>
+		</div>
+	</div>
+</div>
+<!-- Main Container & Overlay
+============================================ -->
+<div class="main-container fix"><div class="overlay blog-overlay"></div></div>
+<!-- Blog Page
+============================================ -->
+
+<div id="{% block div_id %}{% endblock %}" class="blog-page page">
+	<div class="table">
+		<div class="table-cell">
+			<div class="content-wrap">
+				<div class="container container-fluid">
+					<div class="page-wrapper row">
+							{% block content %}
+							{% endblock %}
+						</div>
+					</div>
+				</div><!-- Section Wrapper End -->
+			</div>
+		</div>
+			
+			
+		</div>
+	</div>
+</div>
+
+<!-- jQuery============================================ -->
+
+<!-- jQuery js -->
+<script src="{% static 'js/vendor/jquery-1.12.0.min.js'%}"></script>
+<!-- Plugins js -->
+<script src="{% static 'js/plugins.js'%}"></script>
+<!-- Main js -->
+<script src="{% static 'js/main.js'%}"></script>
+<script src="{% static 'js/script.js'%}"></script>
+<script src="{% static 'js/jquery-1.11.0.min.js'%}"></script>
+
+</body>
 </html>
