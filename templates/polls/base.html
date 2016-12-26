@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>{% block title %}Library - Sukmadyu{% endblock %}</title>
+	<title>{% block title %}Polls - Sukmadyu{% endblock %}</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Fav Icon
@@ -41,6 +41,65 @@
 	
 	<!-- Modernizr JS -->
 	<script src="{% static 'js/vendor/modernizr-2.8.3.min.js'%}"></script>
+	<script type="text/javascript">
+         $(function () {
+             Highcharts.chart('container', {
+                 chart: {
+                     type: 'bar'
+                 },
+                 title: {
+                     text: 'Historic World Population by Region'
+                 },
+                 subtitle: {
+                     text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+                 },
+                 xAxis: {
+                     categories: ['Asia', 'Europe', 'Oceania'],
+                     title: {
+                         text: null
+                     }
+                 },
+                 yAxis: {
+                     min: 0,
+                     title: {
+                         text: 'Population (millions)',
+                         align: 'high'
+                     },
+                     labels: {
+                          overflow: 'justify'
+                     }
+                 },
+                 tooltip: {
+                     valueSuffix: ' millions'
+                 },
+                 plotOptions: {
+                     bar: {
+                         dataLabels: {
+                             enabled: true
+                         }
+                     }
+                 },
+				 legend: {
+                     layout: 'vertical',
+                     align: 'right',
+                     verticalAlign: 'top',
+                     x: -40,
+                     y: 80,
+                     floating: true,
+                     borderWidth: 1,
+                     backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                     shadow: true
+                 },
+                 credits: {
+                     enabled: false
+                 },
+                 series: [{
+                     name: 'Year 2012',
+                     data: [4250, 740, 38]
+                 }]
+             });
+         });
+    </script>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't portfolio if you view the page via file:// -->
@@ -155,22 +214,7 @@
 <script src="{% static 'js/script.js'%}"></script>
 <script src="{% static 'js/jquery-1.11.0.min.js'%}"></script>
 <script src="{% static 'js/highcharts.js'%}"></script>
-<script src="{% static 'js/exporting.js'%}"></script>
+<script src="{% static 'js/exporting.js"></script>
 
 </body>
 </html>
-
-
-<!--<div class="page-header">
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <h1><a href="{% url 'post_list' %}">Django Girls Blog</a></h1>
-        </div>
-
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                {# block content #}
-				{# endblock #}
-                </div>
-            </div>
-        </div>-->

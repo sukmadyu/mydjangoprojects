@@ -1,4 +1,4 @@
-{% extends 'library/base.html' %}
+{% extends 'polls/base.html' %}
 
 {% block content %}
 <!-- Section Title -->
@@ -10,11 +10,15 @@
 		</div>
 	</div><!-- Section Title End -->
 {% if latest_question_list %}
-    <ul>
     {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    <div class="blog-wrapper col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+	<!-- Single Blog Start -->
+		<div class="single-blog">
+			<div class="single-blog-content">
+				<h3><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></h3>
+			</div>
+		</div>
     {% endfor %}
-    </ul>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
