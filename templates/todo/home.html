@@ -11,13 +11,18 @@
 	</div><!-- Section Title End -->
 	<!-- Blog Wrapper -->
 	<div class="blog-wrapper col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
-		{% for do in todo %}
-		<h3>{{ do.name }}</h3>
-		<span class="do"><i class="to-do ti-calendar"></i>{{ do.created_date|date:"D d M Y" }}</span>
-		<span class="do"><i class="to-do ti-time"></i> {{ do.created_date |time:"H:i"}}</span>
-		<p class="do">{{ do.description }}</p>
-		<hr />
+		<!-- Single Blog Start -->
+		<div class="single-blog">
+			<div class="single-blog-content">
+				{% for do in todo %}
+				<h3>{{ do.name }}</h3>
+				<span class="do"><i class="to-do ti-calendar"></i>{{ do.created_date|date:"D d M Y" }}</span>
+				<span class="do"><i class="to-do ti-time"></i> {{ do.created_date |time:"H:i"}}</span>
+				<p class="do">{{ do.description }}</p>
+				<hr />
 		{% endfor %}
+			</div>
+		</div>
 	</div>
 
 {% endblock content %}

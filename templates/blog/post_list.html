@@ -15,7 +15,11 @@
 	{% for post in posts %}
 	<!-- Single Blog -->
 		<div class="sin-blog col-md-6 col-xs-12">
-			<a href="{% url 'post_detail' pk=post.pk %}" class="blog-image"><img src="{{post.image.url}}" alt="blog" /></a>
+			<a href="{% url 'post_detail' pk=post.pk %}" class="blog-image">
+				<div class="item-image">
+					<img src="{{post.image.url}}" alt="blog" />
+				</div>
+			</a>
 			<div class="blog-content">
 				<h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
 				<div class="blog-meta fix">

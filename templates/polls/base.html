@@ -4,9 +4,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>{% block title %}Polls - Sukmadyu{% endblock %}</title>
+	
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="{% static 'js/jquery-3.1.1.js'%}"></script>
 	<!-- Fav Icon
 	============================================ -->
 	<link rel="shortcut icon" href="{% static 'img/Sukmadyu.png'%}" type="image/x-icon">
@@ -14,6 +15,7 @@
 	<!-- Google web fonts
 	============================================ -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+	
 	<!-- Css
 	============================================ -->
 	<!-- Bootstrap Css -->
@@ -41,20 +43,26 @@
 	
 	<!-- Modernizr JS -->
 	<script src="{% static 'js/vendor/modernizr-2.8.3.min.js'%}"></script>
+	
+	<title>{% block title %}Polls - Sukmadyu{% endblock %}</title>
+	{% block extra_js %}
 	<script type="text/javascript">
+		
          $(function () {
              Highcharts.chart('container', {
                  chart: {
                      type: 'bar'
                  },
                  title: {
-                     text: 'Historic World Population by Region'
-                 },
-                 subtitle: {
-                     text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+                     text: 
+                     '{{ question.question_text }}'
                  },
                  xAxis: {
-                     categories: ['Asia', 'Europe', 'Oceania'],
+                     categories: [
+                     {% for choice in question.choice_set.all %}
+                     '{{ choice.choice_text }}'{% if not forloop.last %},{% endif %}
+                     {% endfor %}
+                     ],
                      title: {
                          text: null
                      }
@@ -62,7 +70,7 @@
                  yAxis: {
                      min: 0,
                      title: {
-                         text: 'Population (millions)',
+                         text: 'JumlahVote',
                          align: 'high'
                      },
                      labels: {
@@ -70,7 +78,7 @@
                      }
                  },
                  tooltip: {
-                     valueSuffix: ' millions'
+                     valueSuffix: ' votes'
                  },
                  plotOptions: {
                      bar: {
@@ -94,12 +102,18 @@
                      enabled: false
                  },
                  series: [{
-                     name: 'Year 2012',
-                     data: [4250, 740, 38]
+                     name: 'Vote Result',
+                     data: [
+                     {% for choice in question.choice_set.all %}
+                     {{ choice.votes }}{% if not forloop.last %},{% endif %}
+                     {% endfor %}
+                     ]
                  }]
              });
          });
+         
     </script>
+    {% endblock extra_js %}
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't portfolio if you view the page via file:// -->
@@ -214,7 +228,8 @@
 <script src="{% static 'js/script.js'%}"></script>
 <script src="{% static 'js/jquery-1.11.0.min.js'%}"></script>
 <script src="{% static 'js/highcharts.js'%}"></script>
-<script src="{% static 'js/exporting.js"></script>
+<script src="{% static 'js/exporting.js'%}"></script>
+
 
 </body>
 </html>
