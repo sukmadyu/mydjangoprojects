@@ -329,17 +329,19 @@
 					</div><!-- Section Title End -->
 					<div class="col-xs-12">
 						<!-- Portfolio Wrapper -->
-						<div class="portfolio-wrapper text-center">							
+						<div class="portfolio-wrapper">							
 							{% for portfolio in portfolios %}
-							<!-- Single Portfolio -->
-							<div class="single-portfolio col-md-4 col-sm-6 col-xs-12">
-								<div class="item-image">
-									<img src="{{portfolio.image.url}}" alt="" />
-								</div>
-									<a href="{{portfolio.image.url}}" class="portfolio-hover">
-										<h2>{{portfolio.title}}</h2>
-										<p>{{portfolio.description}}</p>
-									</a>
+							<!-- Single Blog -->
+							<div class="sin-blog col-md-6 col-xs-12">
+								<a href="{{portfolio.portfolio_url}}" class="blog-image">
+									<div class="item-image">
+										<img src="{{portfolio.image.url}}" alt="portfolio" />
+									</div>
+								</a>
+							<div class="blog-content">
+								<h1><a href="#">{{portfolio.title}}</a></h1>
+								<p>{{portfolio.description}}</p>
+							</div>
 							</div>
 							{% endfor %}
 						</div><!-- Portfolio Wrapper End -->
