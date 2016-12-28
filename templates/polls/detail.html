@@ -9,17 +9,29 @@
 			<a href="/" class="title-link"><i class="ti-home"></i></a>
 		</div>
 	</div><!-- Section Title End -->
+	<!-- Blog Wrapper -->
+	<div class="blog-wrapper col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+		<!-- Single Blog Start -->
+		<div class="single-blog">
+			<div class="single-blog-content">
+				<h1>{{ question.question_text }}</h1>
 
-<h1>{{ question.question_text }}</h1>
+				{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+				<form action="{% url 'polls:vote' question.id %}" method="post">
+				{% csrf_token %}
+					{% for choice in question.choice_set.all %}
+					<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+					<label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+				{% endfor %}
+					<input type="submit" 
+						   value="Vote" 
+						   class="title-link" 
+						   style="font-size:20px; border-radius:0%;position: inherit;margin-top:20px;"/>
+				</form>
+			</div>
+		</div>	
+	</div>
+	
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-{% endfor %}
-<input type="submit" value="Vote" />
-</form>
 {% endblock %}

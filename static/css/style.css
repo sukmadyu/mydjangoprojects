@@ -580,9 +580,9 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   border: 10px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   display: block;
-  height: 250px;
+  height: 220px;
   margin: 0 auto;
-  width: 250px;
+  width: 220px;
 }
 /* About Content */
 .about-me {
